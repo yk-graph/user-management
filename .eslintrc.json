@@ -36,8 +36,6 @@
   ],
   "rules": {
     // TypeScirpt なので prop-types は要らない
-    "react/prop-types": "off",
-    // react/display-name が出てしまうエラーを外す
-    "ignoreTranspilerName": false
+    "react/prop-types": "off"
   }
 }
