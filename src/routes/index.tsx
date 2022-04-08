@@ -8,7 +8,7 @@ import Setting from '../components/pages/Setting'
 import Page404 from '../components/pages/Page404'
 import HeaderLayout from '../components/templates/HeaderLayout'
 
-const Router: React.VFC = () => {
+const Router: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />

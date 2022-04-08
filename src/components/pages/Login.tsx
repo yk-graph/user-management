@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login: React.VFC = () => {
+const Login: React.FC = () => {
   return <div>Login</div>
 }
 

@@ -1,22 +1,28 @@
-import React from 'react'
-import {
-  Box,
-  Button,
-  Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerOverlay,
-  Flex,
-  Heading,
-  IconButton,
-  Link,
-  useDisclosure,
-} from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import React, { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react'
+
+import MenuIconButton from '../../atoms/button/MenuIconButton'
+import MenuDrawer from '../../molecules/MenuDrawer'
+
+useNavigate
 
 const Header: React.FC = () => {
   // ChakraUIからドロワーメニューを実装する時に便利な関数をimportしておく
   const { isOpen, onOpen, onClose } = useDisclosure()
+  // v6からはuseHistory廃止
+  const navigate = useNavigate()
+
+  const onClickHome = useCallback(() => navigate('/'), [navigate])
+  const onClickUserManagement = useCallback(
+    () => navigate('/home/user-management'),
+    [navigate]
+  )
+  const onClickSetting = useCallback(
+    () => navigate('/home/setting'),
+    [navigate]
+  )
+
   return (
     <>
       <Flex
@@ -29,7 +35,13 @@ const Header: React.FC = () => {
         padding={{ base: 3, md: 5 }}
       >
         {/* hoverの挙動指定は_hover={{ }}で可能 */}
-        <Flex align="center" as="a" mr={8} _hover={{ cursor: 'pointer' }}>
+        <Flex
+          align="center"
+          as="a"
+          mr={8}
+          _hover={{ cursor: 'pointer' }}
+          onClick={onClickHome}
+        >
           {/* ベースとなるフォントサイズはmdで、ブレークポイントがmd以上になったらフォントサイズlgを適用させる */}
           <Heading as="h1" fontSize={{ base: 'md', md: 'lg' }}>
             ユーザー管理アプリ
@@ -43,33 +55,21 @@ const Header: React.FC = () => {
           display={{ base: 'none', md: 'flex' }}
         >
           <Box pr={4}>
-            <Link>ユーザー一覧</Link>
+            <Link onClick={onClickUserManagement}>ユーザー一覧</Link>
           </Box>
-          <Link>設定</Link>
+          <Link onClick={onClickSetting}>設定</Link>
         </Flex>
-        <IconButton
-          // aria-labelを指定しないと忠告されるので設定が必要
-          aria-label={'メニューボタン'}
-          icon={<HamburgerIcon />}
-          size="sm"
-          variant="unstyled"
-          // ベース(SP)は表示させて、ブレークポイントがmd以上になったら非表示にする
-          display={{ base: 'block', md: 'none' }}
-          onClick={onOpen}
-        />
+        <MenuIconButton onOpen={onOpen} />
       </Flex>
+
       {/* ドロワーがクローズした時の挙動と、どの状態の時にドロワーを開くかの制御をかける※関数は予めuseDisclosureからimportする */}
-      <Drawer placement="left" size="xs" onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerBody p={0} bg="gray.100">
-              <Button w="100%">TOP</Button>
-              <Button w="100%">ユーザー一覧</Button>
-              <Button w="100%">設定</Button>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
+      <MenuDrawer
+        isOpen={isOpen}
+        onClose={onClose}
+        onClickHome={onClickHome}
+        onClickUserManagement={onClickUserManagement}
+        onClickSetting={onClickSetting}
+      />
     </>
   )
 }

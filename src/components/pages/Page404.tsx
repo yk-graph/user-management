@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Page404: React.VFC = () => {
+const Page404: React.FC = () => {
   return <div>ページが見つかりません</div>
 }
 
