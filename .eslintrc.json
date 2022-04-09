@@ -36,6 +36,8 @@
   ],
   "rules": {
     // TypeScirpt なので prop-types は要らない
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    // non-null assertions(!での制御)によるlinterでのチェックを外す
+    "@typescript-eslint/no-non-null-assertion": "off"
   }
 }
