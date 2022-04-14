@@ -38,6 +38,6 @@
     // TypeScirpt なので prop-types は要らない
     "react/prop-types": "off",
     // memo化した時の eslint-disable-next-line react/display-name の忠告を避けるための記述
-    "ignoreTranspilerName": true
+    "react/display-name": [{ "ignoreTranspilerName": false }]
   }
 }
