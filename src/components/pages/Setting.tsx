@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react'
 
-const Setting: FC = memo(() => {
+const Setting: FC = () => {
   return <div>Setting</div>
-})
+}
 
-export default Setting
+export default memo(Setting)

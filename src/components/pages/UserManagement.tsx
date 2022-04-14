@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react'
 
-const UserManagement: FC = memo(() => {
+const UserManagement: FC = () => {
   return <div>UserManagement</div>
-})
+}
 
-export default UserManagement
+export default memo(UserManagement)

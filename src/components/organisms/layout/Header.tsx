@@ -4,7 +4,7 @@ import MenuIconButton from '../../atoms/button/MenuIconButton'
 import MenuDrawer from '../../molecules/MenuDrawer'
 import { useNavigate } from 'react-router-dom'
 
-const Header: FC = memo(() => {
+const Header: FC = () => {
   console.log('Header.tsx')
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
@@ -59,6 +59,6 @@ const Header: FC = memo(() => {
       />
     </>
   )
-})
+}
 
-export default Header
+export default memo(Header)

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import PrimaryButton from '../atoms/button/PrimaryButton'
 
-const Login: FC = memo(() => {
+const Login: FC = () => {
   return (
     <Flex align="center" justify="center" height="100vh">
       <Box bg="white" w="sm" p={4} borderRadius="md" shadow="md">
@@ -25,6 +25,6 @@ const Login: FC = memo(() => {
       </Box>
     </Flex>
   )
-})
+}
 
-export default Login
+export default memo(Login)

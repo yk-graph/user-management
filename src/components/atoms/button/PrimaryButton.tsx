@@ -15,4 +15,4 @@ const PrimaryButton: FC<Props> = (props) => {
   )
 }
 
-export default PrimaryButton
+export default memo(PrimaryButton)

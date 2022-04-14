@@ -7,7 +7,7 @@ interface Props {
   onOpen: () => void
 }
 
-const MenuIconButton: FC<Props> = memo((props) => {
+const MenuIconButton: FC<Props> = (props) => {
   const { onOpen } = props
   return (
     <IconButton
@@ -19,6 +19,6 @@ const MenuIconButton: FC<Props> = memo((props) => {
       onClick={onOpen}
     />
   )
-})
+}
 
-export default MenuIconButton
+export default memo(MenuIconButton)

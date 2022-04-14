@@ -16,7 +16,7 @@ interface Props {
   linkToSetting: () => void
 }
 
-const MenuDrawer: FC<Props> = memo((props) => {
+const MenuDrawer: FC<Props> = (props) => {
   console.log('MenuDrawer.tsx')
   const { onClose, isOpen, linkToHome, linkToUserManagement, linkToSetting } =
     props
@@ -40,6 +40,6 @@ const MenuDrawer: FC<Props> = memo((props) => {
       </DrawerOverlay>
     </Drawer>
   )
-})
+}
 
-export default MenuDrawer
+export default memo(MenuDrawer)

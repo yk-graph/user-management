@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import Header from '../organisms/layout/Header'
 
 Outlet
-const HeaderLayout: FC = memo(() => {
+const HeaderLayout: FC = () => {
   console.log('HeaderLayout.tsx')
   return (
     <>
@@ -12,6 +12,6 @@ const HeaderLayout: FC = memo(() => {
       <Outlet />
     </>
   )
-})
+}
 
-export default HeaderLayout
+export default memo(HeaderLayout)
