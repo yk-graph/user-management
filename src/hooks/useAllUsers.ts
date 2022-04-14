@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import axios from 'axios'
 
 import { useMessage } from './useMessage'
@@ -25,7 +25,7 @@ export const useAllUsers = () => {
         })
       )
       .finally(() => setLoading(false))
-  }, [])
+  }, [showMessage])
   return {
     getUsers,
     users,

@@ -36,7 +36,7 @@ export const useAuth = () => {
         // 正常に処理が終わってもエラーになっても、最終的にローディングは終了させたいためfinalyで処理を記述
         .finally(() => setLoading(false))
     },
-    [navigate]
+    [navigate, showMessage]
   )
   return { login, loading }
 }

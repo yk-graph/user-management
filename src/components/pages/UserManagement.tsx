@@ -9,7 +9,7 @@ const UserManagement: FC = () => {
 
   useEffect(() => {
     getUsers()
-  }, [])
+  }, [getUsers])
 
   return (
     <>

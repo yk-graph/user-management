@@ -9,12 +9,12 @@ const Header: FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
 
-  const linkToHome = useCallback(() => navigate('/home'), [])
+  const linkToHome = useCallback(() => navigate('/home'), [navigate])
   const linkToUserManagement = useCallback(
     () => navigate('/home/user-management'),
-    []
+    [navigate]
   )
-  const linkToSetting = useCallback(() => navigate('/home/setting'), [])
+  const linkToSetting = useCallback(() => navigate('/home/setting'), [navigate])
 
   return (
     <>
