@@ -4,13 +4,16 @@ import { BrowserRouter } from 'react-router-dom'
 
 import theme from './theme'
 import Router from './router'
+import { LoginUserProvider } from './providers/LoginUserProvider'
 
 const App: FC = () => {
   return (
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <LoginUserProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </LoginUserProvider>
     </ChakraProvider>
   )
 }
