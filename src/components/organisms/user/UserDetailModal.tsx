@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Stack,
-} from '@chakra-ui/react'
-import { UserType } from '../../../types/api/user'
-
-interface Props {
-  isOpen: boolean
-  selectedUser: UserType | null
-  onClose: () => void
-}
-
-const UserDetailModal: React.FC<Props> = (props) => {
-  const { isOpen, onClose, selectedUser } = props
-=======
 import React, { FC, memo, useState, useEffect, ChangeEvent } from 'react'
 import {
   Modal,
@@ -72,7 +47,6 @@ const UserDetailModal: FC<Props> = (props) => {
   const onChangePhone = (e: ChangeEvent<HTMLInputElement>) =>
     setPhone(e.target.value)
 
->>>>>>> restart-branch
   return (
     <Modal
       isOpen={isOpen}
@@ -81,35 +55,13 @@ const UserDetailModal: FC<Props> = (props) => {
       motionPreset="slideInBottom"
     >
       <ModalOverlay>
-<<<<<<< HEAD
-        <ModalContent pb={6}>
-=======
         <ModalContent pb={2}>
->>>>>>> restart-branch
           <ModalHeader>ユーザー詳細</ModalHeader>
           <ModalCloseButton />
           <ModalBody mx={4}>
             <Stack spacing={4}>
               <FormControl>
                 <FormLabel>名前</FormLabel>
-<<<<<<< HEAD
-                <Input value={selectedUser?.username} isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>フルネーム</FormLabel>
-                <Input value={selectedUser?.name} isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>メール</FormLabel>
-                <Input value={selectedUser?.email} isReadOnly />
-              </FormControl>
-              <FormControl>
-                <FormLabel>電話番号</FormLabel>
-                <Input value={selectedUser?.phone} isReadOnly />
-              </FormControl>
-            </Stack>
-          </ModalBody>
-=======
                 <Input
                   value={userName}
                   isReadOnly={!isAdmin}
@@ -147,15 +99,10 @@ const UserDetailModal: FC<Props> = (props) => {
               <PrimaryButton onClick={onClickUpdate}>更新</PrimaryButton>
             </ModalFooter>
           )}
->>>>>>> restart-branch
         </ModalContent>
       </ModalOverlay>
     </Modal>
   )
 }
 
-<<<<<<< HEAD
-export default UserDetailModal
-=======
 export default memo(UserDetailModal)
->>>>>>> restart-branch

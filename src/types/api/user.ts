@@ -20,8 +20,5 @@ export type UserType = {
     catchPhrase: string
     bs: string
   }
-<<<<<<< HEAD
-=======
   isAdmin?: boolean
->>>>>>> restart-branch
 }
