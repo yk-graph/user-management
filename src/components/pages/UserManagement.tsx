@@ -8,18 +8,25 @@ import {
 } from '@chakra-ui/react'
 
 import { useAllUsers } from '../../hooks/useAllUsers'
+import { useSelectUser } from '../../hooks/useSelectUser'
 import UserCard from '../organisms/user/UserCard'
 import UserDetailModal from '../organisms/user/UserDetailModal'
 
 const UserManagement: FC = () => {
   const { getUsers, users, loading } = useAllUsers()
+  const { selectedUser, onSelectUser } = useSelectUser()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
     getUsers()
   }, [getUsers])
 
-  const onClickUser = useCallback(() => onOpen(), [onOpen])
+  const onClickUser = useCallback(
+    (userId: number) => {
+      onSelectUser({ userId, users, onOpen })
+    },
+    [onOpen, onSelectUser, users]
+  )
 
   return (
     <>
@@ -33,6 +40,7 @@ const UserManagement: FC = () => {
             <WrapItem key={user.id} mx="auto">
               <UserCard
                 imageUrl="https://source.unsplash.com/random"
+                userId={user.id}
                 userName={user.username}
                 fullName={user.name}
                 onClick={onClickUser}
@@ -41,7 +49,11 @@ const UserManagement: FC = () => {
           ))}
         </Wrap>
       )}
-      <UserDetailModal isOpen={isOpen} onClose={onClose} />
+      <UserDetailModal
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedUser={selectedUser}
+      />
     </>
   )
 }
