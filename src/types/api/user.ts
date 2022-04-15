@@ -20,4 +20,5 @@ export type UserType = {
     catchPhrase: string
     bs: string
   }
+  isAdmin?: boolean
 }
