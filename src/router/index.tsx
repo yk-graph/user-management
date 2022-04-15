@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Login from '../components/pages/Login'
@@ -8,7 +8,7 @@ import Setting from '../components/pages/Setting'
 import Page404 from '../components/pages/Page404'
 import HeaderLayout from '../components/templates/HeaderLayout'
 
-const Router: React.FC = () => {
+const Router: FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />

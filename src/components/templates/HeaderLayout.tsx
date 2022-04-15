@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { FC, memo } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Header from '../organisms/layout/Header'
 
-const HeaderLayout: React.FC = () => {
+Outlet
+const HeaderLayout: FC = () => {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
-    </div>
+    </>
   )
 }
 
-export default HeaderLayout
+export default memo(HeaderLayout)
