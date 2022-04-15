@@ -9,6 +9,7 @@ import {
 
 import { useAllUsers } from '../../hooks/useAllUsers'
 import { useSelectUser } from '../../hooks/useSelectUser'
+import { useLoginUser } from '../../hooks/useLoginUser'
 import UserCard from '../organisms/user/UserCard'
 import UserDetailModal from '../organisms/user/UserDetailModal'
 
@@ -16,6 +17,7 @@ const UserManagement: FC = () => {
   const { getUsers, users, loading } = useAllUsers()
   const { selectedUser, onSelectUser } = useSelectUser()
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { loginUser } = useLoginUser()
 
   useEffect(() => {
     getUsers()
@@ -53,6 +55,7 @@ const UserManagement: FC = () => {
         isOpen={isOpen}
         onClose={onClose}
         selectedUser={selectedUser}
+        isAdmin={loginUser?.isAdmin}
       />
     </>
   )
