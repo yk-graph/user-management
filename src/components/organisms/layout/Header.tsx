@@ -5,7 +5,6 @@ import MenuDrawer from '../../molecules/MenuDrawer'
 import { useNavigate } from 'react-router-dom'
 
 const Header: FC = () => {
-  console.log('Header.tsx')
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
 

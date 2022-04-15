@@ -17,7 +17,6 @@ interface Props {
 }
 
 const MenuDrawer: FC<Props> = (props) => {
-  console.log('MenuDrawer.tsx')
   const { onClose, isOpen, linkToHome, linkToUserManagement, linkToSetting } =
     props
 

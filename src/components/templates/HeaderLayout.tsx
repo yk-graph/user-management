@@ -5,7 +5,6 @@ import Header from '../organisms/layout/Header'
 
 Outlet
 const HeaderLayout: FC = () => {
-  console.log('HeaderLayout.tsx')
   return (
     <>
       <Header />
