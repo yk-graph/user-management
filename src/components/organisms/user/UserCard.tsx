@@ -5,10 +5,11 @@ interface Props {
   imageUrl: string
   userName: string
   fullName: string
+  onClick: () => void
 }
 
 const UserCard: FC<Props> = (props) => {
-  const { imageUrl, userName, fullName } = props
+  const { imageUrl, userName, fullName, onClick } = props
   return (
     <Box
       w="260px"
@@ -18,6 +19,7 @@ const UserCard: FC<Props> = (props) => {
       shadow="md"
       p={4}
       _hover={{ cursor: 'pointer', opacity: 0.8 }}
+      onClick={onClick}
     >
       <Stack textAlign="center">
         <Image borderRadius="full" boxSize="160px" src={imageUrl} m="auto" />
